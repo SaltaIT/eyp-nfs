@@ -4,7 +4,7 @@ define nfs::nfsmount (
                           $nfsrw         = true,
                           $ensure        = 'mounted',
                           $opts          = 'vers=3,tcp,timeo=600,rsize=65536,wsize=65536,hard,noac,_netdev',
-                          $mkdir_mount   = false,
+                          $mkdir_mount   = true,
                           $mount_owner   = 'root',
                           $mount_group   = 'root',
                           $mount_mode    = '0755',
@@ -56,13 +56,14 @@ define nfs::nfsmount (
 
     $require_mount= [
                       Exec["mkdir p ${mount}"],
+                      File[$mount],
                       Class['nfs::service'],
                       File[$mount]
                     ]
   }
   else
   {
-    $require_mount=[ Exec["mkdir p ${mount}"], Class['nfs::service'] ]
+    $require_mount=Class['nfs::service']
   }
 
   mount { $mount:
