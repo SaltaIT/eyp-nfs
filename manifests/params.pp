@@ -8,6 +8,7 @@ class nfs::params {
       {
         /^[5-7].*$/:
         {
+          $package_name=[ 'nfs-utils' ]
         }
         default: { fail("Unsupported RHEL/CentOS version! - ${::operatingsystemrelease}")  }
       }
@@ -22,6 +23,7 @@ class nfs::params {
           {
             /^14.*$/:
             {
+              $package_name=[ 'nfs-common' ]
             }
             default: { fail("Unsupported Ubuntu version! - ${::operatingsystemrelease}")  }
           }

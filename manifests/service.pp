@@ -15,7 +15,21 @@ class nfs::service inherits nfs {
   {
     if($nfs::manage_service)
     {
-      #service or exec here
+      # TODO server
+      # if($is_server)
+      # {
+      #
+      # }
+
+      service { 'rpcbind':
+        ensure => $nfs::service_ensure,
+        enable => $nfs::service_enable,
+      }
+
+      service { 'nfslock':
+        ensure => $nfs::service_ensure,
+        enable => $nfs::service_enable,
+      }
     }
   }
 }
