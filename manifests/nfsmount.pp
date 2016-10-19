@@ -27,7 +27,7 @@ define nfs::nfsmount (
         owner   => 'root',
         group   => 'root',
         mode    => '0644',
-        content => $check_content
+        content => $check_content,
         require => Mount[$mount],
       }
     }
