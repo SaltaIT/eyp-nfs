@@ -58,14 +58,20 @@ define nfs::nfsmount (
         mode    => $mount_mode,
         require => Exec["mkdir p ${mount}"],
       }
+
+      $require_mount= [
+                        Exec["mkdir p ${mount}"],
+                        File[$mount],
+                        Class['nfs::service'],
+                      ]
+    }
+    else
+    {
+      $require_mount= [
+                        Class['nfs::service']
+                      ]
     }
 
-    $require_mount= [
-                      Exec["mkdir p ${mount}"],
-                      File[$mount],
-                      Class['nfs::service'],
-                      File[$mount]
-                    ]
   }
   else
   {

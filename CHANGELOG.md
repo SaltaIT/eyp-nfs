@@ -1,8 +1,8 @@
 # CHANGELOG
 
-## 0.1.5
+## 0.1.6
 
-* bugfix
+* bugfix dependencies
 
 ## 0.1.3
 
