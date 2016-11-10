@@ -2,7 +2,7 @@
   "name": "eyp-nfs",
   "version": "0.1.6",
   "author": "eyp",
-  "summary": null,
+  "summary": "nfs management",
   "license": "Apache-2.0",
   "source": "https://github.com/NTTCom-MS/eyp-nfs",
   "project_page": null,
