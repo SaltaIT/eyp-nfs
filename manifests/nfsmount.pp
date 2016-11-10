@@ -31,7 +31,7 @@ define nfs::nfsmount (
 
   if($nfsrw)
   {
-    $nfsoptions="rw,${protocol},${recovery},timeo=${timeo},rsize=${rsize},wsize=${wsize},${opts}"
+    $nfsoptions="rw,proto=${protocol},${recovery},timeo=${timeo},rsize=${rsize},wsize=${wsize},${opts}"
 
     if($check_file!=undef)
     {
@@ -50,7 +50,7 @@ define nfs::nfsmount (
   }
   else
   {
-    $nfsoptions="ro,${protocol},${recovery},timeo=${timeo},rsize=${rsize},wsize=${wsize},${opts}"
+    $nfsoptions="ro,proto=${protocol},${recovery},timeo=${timeo},rsize=${rsize},wsize=${wsize},${opts}"
   }
 
   if($mkdir_mount)
