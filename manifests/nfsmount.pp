@@ -31,7 +31,7 @@ define nfs::nfsmount (
           mode    => '0644',
           content => $check_content,
           require => Mount[$mount],
-        }  
+        }
       }
     }
   }
@@ -72,8 +72,9 @@ define nfs::nfsmount (
     $require_mount=Class['nfs::service']
   }
 
-  mount { $mount:
+  mount { "$mount $ensure":
         ensure   => $ensure,
+        name     => $mount,
         atboot   => true,
         device   => $nfsdevice,
         fstype   => 'nfs',
