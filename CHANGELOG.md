@@ -1,5 +1,14 @@
 # CHANGELOG
 
+## 0.1.7
+
+* added variables for **nfsmount**:
+  * timeo
+  * rsize
+  * wsize
+  * recovery
+  * protocol
+
 ## 0.1.6
 
 * bugfix dependencies

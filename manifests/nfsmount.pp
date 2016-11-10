@@ -3,7 +3,12 @@ define nfs::nfsmount (
                           $mount         = $name,
                           $nfsrw         = true,
                           $ensure        = 'mounted',
-                          $opts          = 'vers=3,tcp,timeo=600,rsize=65536,wsize=65536,hard,noac,_netdev',
+                          $opts          = 'vers=3,noac,_netdev',
+                          $timeo         = '600',
+                          $rsize         = '65536',
+                          $wsize         = '65536',
+                          $recovery      = 'hard',
+                          $protocol      = 'tcp',
                           $mkdir_mount   = true,
                           $mount_owner   = 'root',
                           $mount_group   = 'root',
@@ -16,9 +21,17 @@ define nfs::nfsmount (
     path => '/bin:/sbin:/usr/bin:/usr/sbin',
   }
 
+  validate_re($ensure, [ 'mounted', 'absent' ], 'ensure not valid: mounted/absent')
+
+  validate_re($recovery, [ 'hard', 'soft' ], 'recovery not valid: hard/soft')
+
+  #udp, udp6,  tcp, tcp6,  and  rdma
+  validate_re($protocol, [ 'udp', 'udp6', 'tcp', 'tcp6', 'rdma' ], 'protocol not valid - available values are udp, udp6,  tcp, tcp6,  and  rdma')
+
+
   if($nfsrw)
   {
-    $nfsoptions="rw,${opts}"
+    $nfsoptions="rw,${protocol},${recovery},timeo=${timeo},rsize=${rsize},wsize=${wsize},${opts}"
 
     if($check_file!=undef)
     {
@@ -37,10 +50,8 @@ define nfs::nfsmount (
   }
   else
   {
-    $nfsoptions="ro,${opts}"
+    $nfsoptions="ro,${protocol},${recovery},timeo=${timeo},rsize=${rsize},wsize=${wsize},${opts}"
   }
-
-  validate_re($ensure, [ 'mounted', 'absent' ], 'not valid: mounted/absent')
 
   if($mkdir_mount)
   {
