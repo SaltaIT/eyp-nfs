@@ -72,9 +72,8 @@ define nfs::nfsmount (
     $require_mount=Class['nfs::service']
   }
 
-  mount { "$mount $ensure":
+  mount { $mount:
         ensure   => $ensure,
-        name     => $mount,
         atboot   => true,
         device   => $nfsdevice,
         fstype   => 'nfs',
