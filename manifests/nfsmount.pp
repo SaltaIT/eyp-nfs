@@ -13,8 +13,8 @@ define nfs::nfsmount (
                         ) {
 
   Exec {
-		path => '/bin:/sbin:/usr/bin:/usr/sbin',
-	}
+    path => '/bin:/sbin:/usr/bin:/usr/sbin',
+  }
 
   if($nfsrw)
   {
@@ -40,7 +40,7 @@ define nfs::nfsmount (
     $nfsoptions="ro,${opts}"
   }
 
-  validate_re($ensure, [ 'mounted', 'absent' ], "not valid: mounted/absent")
+  validate_re($ensure, [ 'mounted', 'absent' ], 'not valid: mounted/absent')
 
   if($mkdir_mount)
   {
