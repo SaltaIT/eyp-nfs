@@ -22,13 +22,16 @@ define nfs::nfsmount (
 
     if($check_file!=undef)
     {
-      file { "${mount}/${check_file}":
-        ensure  => 'present',
-        owner   => 'root',
-        group   => 'root',
-        mode    => '0644',
-        content => $check_content,
-        require => Mount[$mount],
+      if($ensure=='mounted')
+      {
+        file { "${mount}/${check_file}":
+          ensure  => 'present',
+          owner   => 'root',
+          group   => 'root',
+          mode    => '0644',
+          content => $check_content,
+          require => Mount[$mount],
+        }  
       }
     }
   }
@@ -41,17 +44,20 @@ define nfs::nfsmount (
 
   if($mkdir_mount)
   {
-    exec { "mkdir p ${mount}":
-      command => "mkdir -p ${mount}",
-      creates => $mount,
-    }
+    if($ensure=='mounted')
+    {
+      exec { "mkdir p ${mount}":
+        command => "mkdir -p ${mount}",
+        creates => $mount,
+      }
 
-    file { $mount:
-      ensure  => 'present',
-      owner   => $mount_owner,
-      group   => $mount_group,
-      mode    => $mount_mode,
-      require => Exec["mkdir p ${mount}"],
+      file { $mount:
+        ensure  => 'present',
+        owner   => $mount_owner,
+        group   => $mount_group,
+        mode    => $mount_mode,
+        require => Exec["mkdir p ${mount}"],
+      }
     }
 
     $require_mount= [
