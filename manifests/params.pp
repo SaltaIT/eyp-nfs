@@ -4,17 +4,26 @@ class nfs::params {
   {
     'redhat':
     {
+      $package_name=[ 'nfs-utils' ]
+
       case $::operatingsystemrelease
       {
-        /^[5-7].*$/:
+        /^[56].*$/:
         {
-          $package_name=[ 'nfs-utils' ]
+          $nfs_server = 'nfs'
+          $nfslock = 'nfslock'
+        }
+        /^7.*$/:
+        {
+          $nfs_server = 'nfs-server'
+          $nfslock = undef
         }
         default: { fail("Unsupported RHEL/CentOS version! - ${::operatingsystemrelease}")  }
       }
     }
     'Debian':
     {
+      $package_name=[ 'nfs-common', 'nfs-kernel-server' ]
       case $::operatingsystem
       {
         'Ubuntu':
@@ -23,7 +32,8 @@ class nfs::params {
           {
             /^14.*$/:
             {
-              $package_name=[ 'nfs-common' ]
+              $nfs_server = 'nfs-kernel-server'
+              $nfslock = undef
             }
             default: { fail("Unsupported Ubuntu version! - ${::operatingsystemrelease}")  }
           }

@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 0.1.8
+
+* nfs server / exports file
+
 ## 0.1.7
 
 * added variables for **nfsmount**:

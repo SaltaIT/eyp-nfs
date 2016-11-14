@@ -1,0 +1,1 @@
+<%= @path %> <%= @from %>(<% if @rw %>rw<% else %>ro<% end %>,<% if @root_squash %>root_squash<% else %>no_root_squash<% end %><% if defined?(@fsid) %>,fsid=<%= @fsid %><% end %>)
