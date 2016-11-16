@@ -42,7 +42,7 @@ management, etc.) this is the time to mention it.
 
 ### Setup Requirements
 
-This module requires pluginsync enabled 
+This module requires pluginsync enabled
 
 ### Beginning with nfs
 
@@ -75,7 +75,8 @@ have some test to check both presence and absence of any feature
 
 ### TODO
 
-TODO list
+* nfsmount:
+  * add attribute caching variables
 
 ### Contributing
 

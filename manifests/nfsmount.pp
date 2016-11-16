@@ -1,3 +1,9 @@
+#
+# acregmin	3	Minimum lifetime for file attributes
+# acregmax	60	Maximum lifetime for file attributes
+# acdirmin	30	Minimum lifetime for directory attributes
+# acdirmax	60	Maximum lifetime for directory attributes
+#
 define nfs::nfsmount (
                           $nfsdevice,
                           $mount         = $name,
