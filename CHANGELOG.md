@@ -1,5 +1,14 @@
 # CHANGELOG
 
+## 0.1.9
+
+added the following options to nfsmount:
+ * ac
+ * acregmin
+ * acregmax
+ * acdirmin
+ * acdirmax
+
 ## 0.1.8
 
 * nfs server / exports file

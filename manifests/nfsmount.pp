@@ -15,6 +15,11 @@ define nfs::nfsmount (
                           $wsize         = '65536',
                           $recovery      = 'hard',
                           $protocol      = 'tcp',
+                          $ac            = true,
+                          $acregmin      = '3',
+                          $acregmax      = '60',
+                          $acdirmin     = '30',
+                          $acdirmax      = '60',
                           $mkdir_mount   = true,
                           $mount_owner   = 'root',
                           $mount_group   = 'root',
@@ -34,10 +39,18 @@ define nfs::nfsmount (
   #udp, udp6,  tcp, tcp6,  and  rdma
   validate_re($protocol, [ 'udp', 'udp6', 'tcp', 'tcp6', 'rdma' ], 'protocol not valid - available values are udp, udp6,  tcp, tcp6,  and  rdma')
 
+  if($ac)
+  {
+    $nfs_general_options="ac,${acregmin},${acregmax},${acdirmin},${acdirmax},proto=${protocol},${recovery},timeo=${timeo},rsize=${rsize},wsize=${wsize},${opts}"
+  }
+  else
+  {
+    $nfs_general_options="noac,proto=${protocol},${recovery},timeo=${timeo},rsize=${rsize},wsize=${wsize},${opts}"
+  }
 
   if($nfsrw)
   {
-    $nfsoptions="rw,proto=${protocol},${recovery},timeo=${timeo},rsize=${rsize},wsize=${wsize},${opts}"
+    $nfsoptions="rw,${nfs_general_options}"
 
     if($check_file!=undef)
     {
@@ -56,7 +69,7 @@ define nfs::nfsmount (
   }
   else
   {
-    $nfsoptions="ro,proto=${protocol},${recovery},timeo=${timeo},rsize=${rsize},wsize=${wsize},${opts}"
+    $nfsoptions="ro,${nfs_general_options}"
   }
 
   if($mkdir_mount)
