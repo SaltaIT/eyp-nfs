@@ -39,7 +39,6 @@ define nfs::nfsmount (
   #udp, udp6,  tcp, tcp6,  and  rdma
   validate_re($protocol, [ 'udp', 'udp6', 'tcp', 'tcp6', 'rdma' ], 'protocol not valid - available values are udp, udp6,  tcp, tcp6,  and  rdma')
 
-
   if($ac)
   {
     $nfs_general_options="ac,acregmin=${acregmin},acregmax=${acregmax},acdirmin=${acdirmin},acdirmax=${acdirmax},proto=${protocol},${recovery},timeo=${timeo},rsize=${rsize},wsize=${wsize},${opts}"
