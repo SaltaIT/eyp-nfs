@@ -15,7 +15,7 @@ class nfs::service inherits nfs {
   {
     if($nfs::manage_service)
     {
-      if($is_server)
+      if($nfs::is_server)
       {
         service { $nfs::params::nfs_server:
           ensure => $nfs::service_ensure,
