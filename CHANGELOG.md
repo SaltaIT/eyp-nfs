@@ -8,6 +8,7 @@ added the following options to nfsmount:
  * acregmax
  * acdirmin
  * acdirmax
+ * atime
 
 ## 0.1.8
 
