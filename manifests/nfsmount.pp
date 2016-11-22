@@ -9,7 +9,7 @@ define nfs::nfsmount (
                           $mount         = $name,
                           $nfsrw         = true,
                           $ensure        = 'mounted',
-                          $opts          = 'vers=3,noac,_netdev',
+                          $opts          = 'vers=3,_netdev',
                           $timeo         = '600',
                           $rsize         = '65536',
                           $wsize         = '65536',

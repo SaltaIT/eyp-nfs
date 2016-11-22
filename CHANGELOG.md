@@ -1,6 +1,6 @@
 # CHANGELOG
 
-## 0.1.9
+## 0.1.10
 
 added the following options to nfsmount:
  * ac
