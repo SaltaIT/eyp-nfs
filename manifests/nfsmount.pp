@@ -18,7 +18,7 @@ define nfs::nfsmount (
                           $ac            = true,
                           $acregmin      = '3',
                           $acregmax      = '60',
-                          $acdirmin     = '30',
+                          $acdirmin      = '30',
                           $acdirmax      = '60',
                           $mkdir_mount   = true,
                           $mount_owner   = 'root',
