@@ -33,7 +33,7 @@ class nfs::service inherits nfs {
         service { $nfs::params::nfslock:
           ensure => $nfs::service_ensure,
           enable => $nfs::service_enable,
-        }        
+        }
       }
     }
   }
