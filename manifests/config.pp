@@ -8,9 +8,9 @@ class nfs::config inherits nfs {
   {
     concat { '/etc/exports':
       ensure => 'present',
-      owner => 'root',
-      group => 'root',
-      mode => '0644',
+      owner  => 'root',
+      group  => 'root',
+      mode   => '0644',
     }
 
     concat::fragment{ '/etc/exports header':
