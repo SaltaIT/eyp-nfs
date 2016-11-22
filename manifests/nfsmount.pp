@@ -15,7 +15,6 @@ define nfs::nfsmount (
                           $wsize         = '65536',
                           $recovery      = 'hard',
                           $protocol      = 'tcp',
-                          $atime         = false,
                           $ac            = true,
                           $acregmin      = '3',
                           $acregmax      = '60',
@@ -40,22 +39,14 @@ define nfs::nfsmount (
   #udp, udp6,  tcp, tcp6,  and  rdma
   validate_re($protocol, [ 'udp', 'udp6', 'tcp', 'tcp6', 'rdma' ], 'protocol not valid - available values are udp, udp6,  tcp, tcp6,  and  rdma')
 
-  if($atime)
-  {
-    $atime_option='atime'
-  }
-  else
-  {
-    $atime_option='notime'
-  }
 
   if($ac)
   {
-    $nfs_general_options="${atime_option},ac,acregmin=${acregmin},acregmax=${acregmax},acdirmin=${acdirmin},acdirmax=${acdirmax},proto=${protocol},${recovery},timeo=${timeo},rsize=${rsize},wsize=${wsize},${opts}"
+    $nfs_general_options="ac,acregmin=${acregmin},acregmax=${acregmax},acdirmin=${acdirmin},acdirmax=${acdirmax},proto=${protocol},${recovery},timeo=${timeo},rsize=${rsize},wsize=${wsize},${opts}"
   }
   else
   {
-    $nfs_general_options="${atime_option},noac,proto=${protocol},${recovery},timeo=${timeo},rsize=${rsize},wsize=${wsize},${opts}"
+    $nfs_general_options="noac,proto=${protocol},${recovery},timeo=${timeo},rsize=${rsize},wsize=${wsize},${opts}"
   }
 
   if($nfsrw)
