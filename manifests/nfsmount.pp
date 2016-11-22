@@ -41,7 +41,7 @@ define nfs::nfsmount (
 
   if($ac)
   {
-    $nfs_general_options="ac,${acregmin},${acregmax},${acdirmin},${acdirmax},proto=${protocol},${recovery},timeo=${timeo},rsize=${rsize},wsize=${wsize},${opts}"
+    $nfs_general_options="ac,acregmin=${acregmin},acregmax=${acregmax},acdirmin=${acdirmin},acdirmax=${acdirmax},proto=${protocol},${recovery},timeo=${timeo},rsize=${rsize},wsize=${wsize},${opts}"
   }
   else
   {
