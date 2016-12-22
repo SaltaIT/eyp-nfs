@@ -125,9 +125,9 @@ define nfs::nfsmount (
     validate_array($bind_mounts)
 
     # plain_mounts:
-    #   '/shared_fs/%{::ntteam_environment_uppercase}':
+    #   '/shared_fs/':
     #     ensure: 'mounted'
-    #     device: '/opt/informatica/shared_lcih'
+    #     device: '/opt/systemadmin/shared'
     #     fstype: 'none'
     #     options: 'rw,bind'
 
