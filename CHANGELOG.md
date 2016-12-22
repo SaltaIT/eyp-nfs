@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 0.1.11
+
+* added bind mounts support
+
 ## 0.1.10
 
 added the following options to nfsmount:
