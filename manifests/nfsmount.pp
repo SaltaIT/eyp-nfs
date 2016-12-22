@@ -136,7 +136,7 @@ define nfs::nfsmount (
       ensure  => 'mounted',
       device  => $mount,
       fstype  => 'none'
-      options => 'rw,bind'
+      options => 'rw,bind,_netdev'
       require => Mount[$mount],
     }
   }
