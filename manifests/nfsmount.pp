@@ -132,7 +132,7 @@ define nfs::nfsmount (
     #     options: 'rw,bind'
 
     # no pot estar el fstab pq al arrancar no fagi el bindmount sense el nfs mountat
-    mount { $bind_mounts
+    mount { $bind_mounts:
       ensure  => 'mounted',
       device  => $mount,
       fstype  => 'none',
