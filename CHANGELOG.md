@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 0.1.12
+
+* typo bind mounts
+
 ## 0.1.11
 
 * added bind mounts support
