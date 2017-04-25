@@ -4,7 +4,7 @@
 #
 class nfs::config inherits nfs {
 
-  if($is_server)
+  if($nfs::is_server)
   {
     concat { '/etc/exports':
       ensure => 'present',
@@ -19,5 +19,4 @@ class nfs::config inherits nfs {
       order   => '00',
     }
   }
-
 }
