@@ -12,11 +12,13 @@ class nfs::params {
         {
           $nfs_server = 'nfs'
           $nfslock = 'nfslock'
+          $rpcbind_ipv6_fix=false
         }
         /^7.*$/:
         {
           $nfs_server = 'nfs-server'
           $nfslock = undef
+          $rpcbind_ipv6_fix=true
         }
         default: { fail("Unsupported RHEL/CentOS version! - ${::operatingsystemrelease}")  }
       }
@@ -24,6 +26,7 @@ class nfs::params {
     'Debian':
     {
       $package_name=[ 'nfs-common', 'nfs-kernel-server' ]
+      $rpcbind_ipv6_fix=false
       case $::operatingsystem
       {
         'Ubuntu':

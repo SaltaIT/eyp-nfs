@@ -11,4 +11,25 @@ class nfs::install inherits nfs {
     }
   }
 
+  # # cat /usr/lib/systemd/system/rpcbind.socket
+  # [Unit]
+  # Description=RPCbind Server Activation Socket
+  #
+  # [Socket]
+  # ListenStream=/var/run/rpcbind.sock
+  # ListenStream=[::]:111
+  # ListenStream=0.0.0.0:111
+  # BindIPv6Only=ipv6-only
+  #
+  # [Install]
+  # WantedBy=sockets.target
+
+  if($nfs::params::rpcbind_ipv6_fix)
+  {
+    systemd::socket { 'rpcbind':
+      description => 'RPCbind Server Activation Socket',
+      listen_stream => [ '/var/run/rpcbind.sock', '0.0.0.0:111' ]
+    }
+  }
+
 }
