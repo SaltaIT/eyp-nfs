@@ -2,7 +2,7 @@
 
 ## 0.1.13
 
-* added NFS fix for CentOS 7 to be able to enable rpcbind without IPv6
+* added fix for CentOS 7 to be able to enable rpcbind without IPv6
 
 ## 0.1.12
 
