@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 0.1.14
+
+* support for Ubuntu 16.04
+
 ## 0.1.13
 
 * added fix for CentOS 7 to be able to enable rpcbind without IPv6

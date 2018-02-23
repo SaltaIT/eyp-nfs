@@ -33,7 +33,7 @@ class nfs::params {
         {
           case $::operatingsystemrelease
           {
-            /^14.*$/:
+            /^1[46].*$/:
             {
               $nfs_server = 'nfs-kernel-server'
               $nfslock = undef
