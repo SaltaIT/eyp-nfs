@@ -8,7 +8,20 @@ describe 'nfs class' do
     it 'should work with no errors' do
       pp = <<-EOF
 
-      class { 'nfs': }
+      class { 'nfs':
+        is_server => true,
+      }
+
+      nfs::export { '/etc':
+        fsid => '1',
+      }
+
+      ->
+
+      nfs::nfsmount { '/mnt/etc':
+        nfsdevice => '127.0.0.1:/etc',
+      }
+
 
       EOF
 
