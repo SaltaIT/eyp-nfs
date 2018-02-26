@@ -12,6 +12,20 @@ describe 'nfs class' do
         is_server => true,
       }
 
+      EOF
+
+      # Run it twice and test for idempotency
+      expect(apply_manifest(pp).exit_code).to_not eq(1)
+      expect(apply_manifest(pp).exit_code).to eq(0)
+    end
+
+    it 'should work with no errors' do
+      pp = <<-EOF
+
+      class { 'nfs':
+        is_server => true,
+      }
+
       nfs::export { '/etc':
         fsid => '1',
       }
@@ -21,7 +35,6 @@ describe 'nfs class' do
       nfs::nfsmount { '/mnt/etc':
         nfsdevice => '127.0.0.1:/etc',
       }
-
 
       EOF
 
