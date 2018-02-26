@@ -11,6 +11,7 @@ class nfs::config inherits nfs {
       owner  => 'root',
       group  => 'root',
       mode   => '0644',
+      notify => Service[$nfs::params::nfs_server],
     }
 
     concat::fragment{ '/etc/exports header':
