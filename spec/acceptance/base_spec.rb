@@ -30,5 +30,14 @@ describe 'nfs class' do
       expect(apply_manifest(pp).exit_code).to eq(0)
     end
 
+    describe file("/etc/exports") do
+      it { should be_file }
+      its(:content) { should match 'puppet managed file' }
+    end
+
+    it "mounts" do
+      expect(shell("mount").exit_code).to be_zero
+    end
+
   end
 end
