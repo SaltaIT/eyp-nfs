@@ -33,10 +33,16 @@ describe 'nfs class' do
     describe file("/etc/exports") do
       it { should be_file }
       its(:content) { should match 'puppet managed file' }
+      its(:content) { should match '/etc' }
     end
 
     it "mounts" do
       expect(shell("mount").exit_code).to be_zero
+    end
+
+    describe service($nfsservice) do
+      it { should be_enabled }
+      it { is_expected.to be_running }
     end
 
   end
