@@ -50,7 +50,7 @@ describe 'nfs class' do
     end
 
     it "mounts nfs" do
-      expect(shell("mount | grep nfs").exit_code).to be_zero
+      expect(shell("mount | grep 127.0.0.1").exit_code).to be_zero
     end
 
     #showmount -e 127.0.0.1 | grep /etc
