@@ -49,8 +49,8 @@ describe 'nfs class' do
       its(:content) { should match '/etc' }
     end
 
-    it "mounts" do
-      expect(shell("mount").exit_code).to be_zero
+    it "mounts nfs" do
+      expect(shell("mount | grep nfs").exit_code).to be_zero
     end
 
     #showmount -e 127.0.0.1 | grep /etc
