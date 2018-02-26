@@ -40,6 +40,11 @@ describe 'nfs class' do
       expect(shell("mount").exit_code).to be_zero
     end
 
+    #showmount -e 127.0.0.1 | grep /etc
+    it "showmount" do
+      expect(shell("showmount -e 127.0.0.1 | grep /etc").exit_code).to be_zero
+    end
+
     describe service($nfsservice) do
       it { should be_enabled }
       it { is_expected.to be_running }
