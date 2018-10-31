@@ -47,7 +47,7 @@ class nfs::params {
     }
     'Suse':
     {
-      $package_name=[ 'nfs-utils', 'nfs-kernel-server' ]
+      $package_name=[ 'nfs-client', 'nfs-kernel-server' ]
       $rpcbind_ipv6_fix=false
       case $::operatingsystem
       {
