@@ -45,6 +45,27 @@ class nfs::params {
         default: { fail('Unsupported Debian flavour!')  }
       }
     }
+    'Suse':
+    {
+      $package_name=[ 'nfs-utils', 'nfs-kernel-server' ]
+      $rpcbind_ipv6_fix=false
+      case $::operatingsystem
+      {
+        'SLES':
+        {
+          case $::operatingsystemrelease
+          {
+            '11.3':
+            {
+              $nfs_server = 'nfs-kernel-server'
+              $nfslock = undef
+            }
+            default: { fail("Unsupported operating system ${::operatingsystem} ${::operatingsystemrelease}") }
+          }
+        }
+        default: { fail("Unsupported operating system ${::operatingsystem}") }
+      }
+    }
     default: { fail('Unsupported OS!')  }
   }
 }

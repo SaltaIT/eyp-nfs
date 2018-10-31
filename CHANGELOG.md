@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 0.1.15
+
+* support for SLES 11.3
+
 ## 0.1.14
 
 * support for Ubuntu 16.04
