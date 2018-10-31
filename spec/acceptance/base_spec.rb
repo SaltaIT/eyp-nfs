@@ -34,6 +34,7 @@ describe 'nfs class' do
 
       nfs::nfsmount { '/mnt/etc':
         nfsdevice => '127.0.0.1:/etc',
+        require   => Class['nfs::service'],
       }
 
       EOF
