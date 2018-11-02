@@ -47,7 +47,7 @@ describe 'nfs class' do
     describe file("/etc/exports") do
       it { should be_file }
       its(:content) { should match 'puppet managed file' }
-      its(:content) { should match '/etc' }
+      its(:content) { should match '/tmp' }
     end
 
     it "mounts nfs" do
@@ -56,7 +56,7 @@ describe 'nfs class' do
 
     #showmount -e 127.0.0.1 | grep /etc
     it "showmount" do
-      expect(shell("showmount -e 127.0.0.1 | grep /etc").exit_code).to be_zero
+      expect(shell("showmount -e 127.0.0.1 | grep /tmp").exit_code).to be_zero
     end
 
     describe service($nfsservice) do
