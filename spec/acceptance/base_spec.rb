@@ -50,15 +50,6 @@ describe 'nfs class' do
       its(:content) { should match '/tmp' }
     end
 
-    it "showmount localhost" do
-      expect(shell("showmount -e 127.0.0.1").exit_code).to be_zero
-    end
-
-    #showmount -e 127.0.0.1 | grep /etc
-    it "showmount should contain tmp" do
-      expect(shell("showmount -e 127.0.0.1 | grep /tmp").exit_code).to be_zero
-    end
-
     describe service($nfsservice) do
       it { should be_enabled }
       it { is_expected.to be_running }
