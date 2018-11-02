@@ -54,8 +54,12 @@ describe 'nfs class' do
       expect(shell("mount | grep 127.0.0.1").exit_code).to be_zero
     end
 
+    it "showmount localhost" do
+      expect(shell("showmount -e 127.0.0.1").exit_code).to be_zero
+    end
+
     #showmount -e 127.0.0.1 | grep /etc
-    it "showmount" do
+    it "showmount should contain tmp" do
       expect(shell("showmount -e 127.0.0.1 | grep /tmp").exit_code).to be_zero
     end
 
