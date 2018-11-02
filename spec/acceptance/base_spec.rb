@@ -50,14 +50,6 @@ describe 'nfs class' do
       its(:content) { should match '/tmp' }
     end
 
-    it "mounts /mnt/tmp" do
-      expect(shell("mount /mnt/tmp").exit_code).to be_zero
-    end
-
-    it "mounts nfs" do
-      expect(shell("mount | grep 127.0.0.1").exit_code).to be_zero
-    end
-
     it "showmount localhost" do
       expect(shell("showmount -e 127.0.0.1").exit_code).to be_zero
     end
