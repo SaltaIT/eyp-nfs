@@ -2,7 +2,7 @@
 
 ## 0.1.17
 
-* Updated metadata for **eyp-systemd 0.2.0**
+* general lint
 
 ## 0.1.16
 

@@ -2,7 +2,7 @@
   "name": "eyp-nfs",
   "version": "0.1.17",
   "author": "eyp",
-  "summary": "nfs management",
+  "summary": "NFS (client and server) and control file management",
   "license": "Apache-2.0",
   "source": "https://github.com/NTTCom-MS/eyp-nfs",
   "project_page": "https://github.com/NTTCom-MS/eyp-nfs",

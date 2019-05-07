@@ -17,9 +17,7 @@
 
 ## Overview
 
-A one-maybe-two sentence summary of what the module does/what problem it solves.
-This is your 30 second elevator pitch for your module. Consider including
-OS/Puppet version it works with.
+NFS and control file management
 
 ## Module Description
 
@@ -54,8 +52,25 @@ for upgrading, you may wish to include an additional section here: Upgrading
 
 ## Usage
 
-Put the classes, types, and resources for customizing, configuring, and doing
-the fancy stuff with your module here.
+server:
+
+```puppet
+class { 'nfs':
+  is_server => true,
+}
+
+nfs::export { '/etc':
+  fsid => '1',
+}
+```
+
+client:
+
+```puppet
+nfs::nfsmount { '/mnt/etc':
+  nfsdevice => '127.0.0.1:/etc',
+}
+```
 
 ## Reference
 
