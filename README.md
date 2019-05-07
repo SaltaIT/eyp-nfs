@@ -44,15 +44,7 @@ This module requires pluginsync enabled
 
 ### Beginning with nfs
 
-The very basic steps needed for a user to get the module up and running.
-
-If your most recent release breaks compatibility or requires particular steps
-for upgrading, you may wish to include an additional section here: Upgrading
-(For an example, see http://forge.puppetlabs.com/puppetlabs/firewall).
-
-## Usage
-
-server:
+#### server
 
 ```puppet
 class { 'nfs':
@@ -64,13 +56,15 @@ nfs::export { '/etc':
 }
 ```
 
-client:
+#### client
 
 ```puppet
 nfs::nfsmount { '/mnt/etc':
   nfsdevice => '127.0.0.1:/etc',
 }
 ```
+
+## Usage
 
 ## Reference
 
