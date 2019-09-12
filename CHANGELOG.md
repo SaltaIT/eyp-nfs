@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## 0.1.18
+
+* improved IPv6 fix
+* support for Ubuntu 18.04
+
 ## 0.1.17
 
 * general lint

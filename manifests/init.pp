@@ -1,7 +1,3 @@
-# == Class: nfs
-#
-# === nfs documentation
-#
 class nfs (
             $manage_package        = true,
             $package_ensure        = 'installed',

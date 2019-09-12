@@ -1,6 +1,6 @@
 {
   "name": "eyp-nfs",
-  "version": "0.1.17",
+  "version": "0.1.18",
   "author": "eyp",
   "summary": "NFS (client and server) and control file management",
   "license": "Apache-2.0",
@@ -36,7 +36,7 @@
     },
     {
       "operatingsystem": "Ubuntu",
-      "operatingsystemrelease": [ "14.04", "16.04" ]
+      "operatingsystemrelease": [ "14.04", "16.04", "18.04" ]
     },
     {
       "operatingsystem": "SLES",
