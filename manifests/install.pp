@@ -1,7 +1,3 @@
-# == Class: nfs
-#
-# === nfs::install documentation
-#
 class nfs::install inherits nfs {
 
   if($nfs::manage_package)
