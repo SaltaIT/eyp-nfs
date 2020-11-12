@@ -4,9 +4,9 @@
   "author": "eyp",
   "summary": "NFS (client and server) and control file management",
   "license": "Apache-2.0",
-  "source": "https://github.com/NTTCom-MS/eyp-nfs",
-  "project_page": "https://github.com/NTTCom-MS/eyp-nfs",
-  "issues_url": "https://github.com/NTTCom-MS/eyp-nfs/issues",
+  "source": "https://github.com/SaltaIT/eyp-nfs",
+  "project_page": "https://github.com/SaltaIT/eyp-nfs",
+  "issues_url": "https://github.com/SaltaIT/eyp-nfs/issues",
   "dependencies": [
     {"name":"puppetlabs/stdlib","version_requirement":">= 1.0.0 < 9.9.9"},
     {"name":"puppetlabs/concat","version_requirement":">= 1.0.0 < 9.9.9"},
