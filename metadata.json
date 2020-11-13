@@ -1,6 +1,6 @@
 {
   "name": "eyp-nfs",
-  "version": "0.1.18",
+  "version": "1.0.18",
   "author": "Jordi Prats",
   "summary": "NFS (client and server) and control file management",
   "license": "Apache-2.0",
