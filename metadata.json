@@ -1,16 +1,16 @@
 {
   "name": "eyp-nfs",
-  "version": "0.1.18",
-  "author": "eyp",
+  "version": "1.0.18",
+  "author": "Jordi Prats",
   "summary": "NFS (client and server) and control file management",
   "license": "Apache-2.0",
-  "source": "https://github.com/NTTCom-MS/eyp-nfs",
-  "project_page": "https://github.com/NTTCom-MS/eyp-nfs",
-  "issues_url": "https://github.com/NTTCom-MS/eyp-nfs/issues",
+  "source": "https://github.com/SaltaIT/eyp-nfs",
+  "project_page": "https://github.com/SaltaIT/eyp-nfs",
+  "issues_url": "https://github.com/SaltaIT/eyp-nfs/issues",
   "dependencies": [
     {"name":"puppetlabs/stdlib","version_requirement":">= 1.0.0 < 9.9.9"},
     {"name":"puppetlabs/concat","version_requirement":">= 1.0.0 < 9.9.9"},
-    {"name":"eyp/eyplib","version_requirement":">= 0.1.0 < 0.3.0"},
+    {"name":"eyp/eyplib","version_requirement":">= 1.0.0 < 2.0.0"},
     {"name":"eyp/systemd","version_requirement":">= 0.1.29 < 0.4.0"}
   ],
   "operatingsystem_support": [
@@ -46,7 +46,7 @@
   "requirements": [
     {
       "name": "puppet",
-      "version_requirement": ">= 3.8.0"
+      "version_requirement": ">= 4.0.0"
     }
   ]
 }
